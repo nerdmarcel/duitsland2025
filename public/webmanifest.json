@@ -1,0 +1,23 @@
+{
+  "name": "KundenserviceKomfort - Professioneller Support",
+  "short_name": "KundenService",
+  "description": "Professioneller Kundenservice und Support - Telefonisch und persönlich",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2563eb",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/favicon-512.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ]
+}

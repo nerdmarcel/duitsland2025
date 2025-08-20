@@ -1,4 +1,42 @@
+// Track phone calls with source parameter
+function trackPhoneCall(source) {
+    // Google Ads conversion tracking
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {
+            'send_to': 'YOUR_CONVERSION_ID',
+            'event_category': 'phone_call',
+            'event_label': source,
+            'value': 5.0,
+            'currency': 'EUR'
+        });
+    }
+    
+    // Microsoft Clarity event tracking
+    if (typeof clarity !== 'undefined') {
+        clarity('set', 'phone_call_source', source);
+        clarity('event', 'phone_call');
+    }
+    
+    // Bing Ads conversion tracking
+    if (window.uetq) {
+        window.uetq.push('event', 'phone_call', {
+            'event_category': 'conversion',
+            'event_label': source,
+            'revenue_value': 5.0,
+            'currency': 'EUR'
+        });
+    }
+    
+    console.log('Phone call tracked:', source);
+}
+
 // Mobile Navigation Toggle
+// Show cookie banner immediately for new visitors
+const cookieBanner = document.getElementById('cookie-banner');
+if (!localStorage.getItem('cookieConsent') && cookieBanner) {
+    cookieBanner.style.display = 'block';
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -115,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Optimize for Google Ads - Track phone clicks
+    // Optimize for Google Ads & Bing Ads - Track phone clicks
     const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
     phoneLinks.forEach(link => {
         link.addEventListener('click', function() {
@@ -127,6 +165,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     'currency': 'EUR'
                 });
             }
+            
+            // Track conversion for Bing Ads
+            if (window.uetq) {
+                window.uetq.push('event', 'phone_call', {
+                    'event_category': 'conversion',
+                    'revenue_value': 1.0,
+                    'currency': 'EUR'
+                });
+            }
+            
             console.log('Phone call initiated:', this.href);
         });
     });
@@ -171,20 +219,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     document.head.appendChild(schemaScript);
 
+
     // Cookie Consent Management
-    const cookieBanner = document.getElementById('cookie-banner');
     const acceptAllBtn = document.getElementById('cookie-accept-all');
     const essentialBtn = document.getElementById('cookie-essential');
-
-    // Check if user has already made a choice
-    if (!localStorage.getItem('cookieConsent')) {
-        // Show banner after 1 second
-        setTimeout(() => {
-            if (cookieBanner) {
-                cookieBanner.style.display = 'block';
-            }
-        }, 1000);
-    }
 
     // Accept all cookies
     if (acceptAllBtn) {
@@ -198,6 +236,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     'ad_storage': 'granted',
                     'analytics_storage': 'granted'
                 });
+            }
+            
+            // Initialize Bing Ads tracking
+            if (window.uetq) {
+                window.uetq.push('consent', 'granted');
             }
             
             hideCookieBanner();
@@ -218,6 +261,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
             
+            // Deny Bing Ads tracking
+            if (window.uetq) {
+                window.uetq.push('consent', 'denied');
+            }
+            
             hideCookieBanner();
         });
     }
@@ -228,7 +276,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Initialize Google Ads consent based on stored preference
+    // Initialize Google Ads and Bing Ads consent based on stored preference
     const cookieConsent = localStorage.getItem('cookieConsent');
     if (cookieConsent === 'all') {
         if (typeof gtag !== 'undefined') {
@@ -237,12 +285,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 'analytics_storage': 'granted'
             });
         }
+        if (window.uetq) {
+            window.uetq.push('consent', 'granted');
+        }
     } else if (cookieConsent === 'essential') {
         if (typeof gtag !== 'undefined') {
             gtag('consent', 'update', {
                 'ad_storage': 'denied',
                 'analytics_storage': 'denied'
             });
+        }
+        if (window.uetq) {
+            window.uetq.push('consent', 'denied');
         }
     }
 });

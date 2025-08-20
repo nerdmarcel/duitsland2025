@@ -242,6 +242,28 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet';document.documentElement.classList.add('font-loaded');">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "XXXXXXXXXX"); // Replace with your Clarity ID
+    </script>
+
+    <!-- Bing Ads UET (Universal Event Tracking) -->
+    <script>
+        (function(w,d,t,r,u){
+            var f,n,i;
+            w[u]=w[u]||[],f=function(){
+                var o={ti:"XXXXXXXXX"}; // Replace with your UET Tag ID
+                o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")
+            },n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){
+                var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)
+            },i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)
+        })(window,document,"script","//bat.bing.com/bat.js","uetq");
+    </script>
+
     <!-- Optimized Google Analytics 4 & Google Ads - Load after user interaction -->
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -276,13 +298,15 @@
             document.addEventListener(event, loadGA, { once: true, passive: true });
         });
         
-        // Enhanced conversion tracking for phone calls
+        // Enhanced conversion tracking for phone calls (Google Ads + Bing Ads)
         function trackPhoneCall(source) {
             loadGA(); // Ensure GA is loaded before tracking
+            
+            // Google Ads conversion tracking
             setTimeout(() => {
                 gtag('event', 'conversion', {
                     'send_to': 'AW-XXXXXXXXXX/YYYYYYYYYY', // Replace with your conversion ID
-                    'value': 50.0,
+                    'value': 5.0,
                     'currency': 'EUR',
                     'event_category': 'phone_call',
                     'event_label': source
@@ -295,6 +319,16 @@
                     'value': 1
                 });
             }, 100);
+            
+            // Bing Ads conversion tracking
+            if (window.uetq) {
+                window.uetq.push('event', 'phone_call', {
+                    'event_category': 'conversion',
+                    'event_label': source,
+                    'revenue_value': 5.0,
+                    'currency': 'EUR'
+                });
+            }
         }
     </script>
 </head>

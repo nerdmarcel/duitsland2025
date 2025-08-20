@@ -13,8 +13,8 @@ Allow: /index.html
 Allow: /leistungen.html
 Allow: /faq.html
 Allow: /kontakt.html
-Allow: /styles.css
-Allow: /script.js
+Allow: /styles.min.css
+Allow: /script.min.js
 
 # Crawl-delay (optional)
 Crawl-delay: 1
