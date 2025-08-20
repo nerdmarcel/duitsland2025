@@ -170,4 +170,79 @@ document.addEventListener('DOMContentLoaded', function() {
         ]
     });
     document.head.appendChild(schemaScript);
+
+    // Cookie Consent Management
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptAllBtn = document.getElementById('cookie-accept-all');
+    const essentialBtn = document.getElementById('cookie-essential');
+
+    // Check if user has already made a choice
+    if (!localStorage.getItem('cookieConsent')) {
+        // Show banner after 1 second
+        setTimeout(() => {
+            if (cookieBanner) {
+                cookieBanner.style.display = 'block';
+            }
+        }, 1000);
+    }
+
+    // Accept all cookies
+    if (acceptAllBtn) {
+        acceptAllBtn.addEventListener('click', function() {
+            localStorage.setItem('cookieConsent', 'all');
+            localStorage.setItem('cookieConsentDate', new Date().toISOString());
+            
+            // Initialize Google Ads tracking if available
+            if (typeof gtag !== 'undefined') {
+                gtag('consent', 'update', {
+                    'ad_storage': 'granted',
+                    'analytics_storage': 'granted'
+                });
+            }
+            
+            hideCookieBanner();
+        });
+    }
+
+    // Accept only essential cookies
+    if (essentialBtn) {
+        essentialBtn.addEventListener('click', function() {
+            localStorage.setItem('cookieConsent', 'essential');
+            localStorage.setItem('cookieConsentDate', new Date().toISOString());
+            
+            // Deny Google Ads tracking
+            if (typeof gtag !== 'undefined') {
+                gtag('consent', 'update', {
+                    'ad_storage': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            }
+            
+            hideCookieBanner();
+        });
+    }
+
+    function hideCookieBanner() {
+        if (cookieBanner) {
+            cookieBanner.style.display = 'none';
+        }
+    }
+
+    // Initialize Google Ads consent based on stored preference
+    const cookieConsent = localStorage.getItem('cookieConsent');
+    if (cookieConsent === 'all') {
+        if (typeof gtag !== 'undefined') {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+        }
+    } else if (cookieConsent === 'essential') {
+        if (typeof gtag !== 'undefined') {
+            gtag('consent', 'update', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied'
+            });
+        }
+    }
 });
