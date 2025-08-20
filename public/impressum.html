@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex, follow">
     <title>Impressum - KundenserviceKomfort</title>
     <link rel="canonical" href="https://kundenservicekomfort.de/impressum.html">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
         <nav class="navbar">
             <div class="container">
                 <div class="nav-brand">
-                    <a href="index.html">KundenserviceKomfort</a>
+                    <a href="index.html">Kundenservice</a>
                 </div>
                 <button class="nav-toggle" aria-label="Navigation öffnen">
                     <span></span>
@@ -25,19 +25,41 @@
                     <span></span>
                 </button>
                 <ul class="nav-menu">
-                    <li><a href="index.html">Startseite</a></li>
-                    <li><a href="leistungen.html">Leistungen</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="index.html">Support</a></li>
+                    <li><a href="leistungen.html">Services</a></li>
+                    <li><a href="faq.html">Hilfe</a></li>
                     <li><a href="kontakt.html">Kontakt</a></li>
                 </ul>
+                <div class="nav-cta">
+                    <a href="tel:+4930123456789" class="nav-phone-btn" onclick="trackPhoneCall('header_cta');" title="Jetzt anrufen">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        030 123 456 789
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <div class="legal-content">
-            <h1>Impressum</h1>
+        <section class="hero">
+            <div class="container">
+                <h1>Impressum</h1>
+                <p class="hero-subtitle">Rechtliche Angaben und Kontaktinformationen gemäß deutschen Gesetzen</p>
+                <div class="cta-container">
+                    <a href="tel:+4930123456789" class="cta-button cta-primary" onclick="trackPhoneCall('impressum_hero_button');" style="font-size: 1.2rem; padding: 1rem 2rem;">
+                        <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        030 123 456 789
+                    </a>
+                    <p class="availability" style="text-align: center; margin-top: 1.5rem; color: white; opacity: 0.9;">Servicezeiten: Mo-Fr 8:00-20:00 Uhr | Sa 9:00-18:00 Uhr</p>
+                </div>
+            </div>
+        </section>
 
+        <div class="legal-content">
             <h2>Angaben gemäß § 5 TMG</h2>
             <p>
                 KundenserviceKomfort GmbH<br>
@@ -156,6 +178,33 @@
 
             <p><em>Stand: Januar 2024</em></p>
         </div>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Weitere Unterstützung benötigt?</h2>
+                <p style="font-size: 1rem; margin-bottom: 2rem;">Unser Support-Team ist für Sie da und hilft Ihnen gerne weiter.</p>
+                
+                <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px; max-width: 400px;">
+                        <h3 style="margin-bottom: 0.5rem; color: white;">Telefonischer Support</h3>
+                        <p style="margin-bottom: 1.5rem; color: rgba(255,255,255,0.9);">Mo-Fr 8:00-20:00 Uhr<br>Sa 9:00-18:00 Uhr</p>
+                        <a href="tel:+4930123456789" class="cta-button cta-secondary" onclick="trackPhoneCall('impressum_cta_phone');" style="font-size: 1.1rem;">
+                            📞 030 123 456 789
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background: #f8f9fa; padding: 2rem 0; border-top: 1px solid #e9ecef;">
+            <div class="container">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <p style="font-size: 0.9rem; color: #6c757d; margin: 0; line-height: 1.5;">
+                        <strong>Wichtiger Hinweis:</strong> Wir sind ein selbständig operierendes Unternehmen und nicht mit anderen Firmen, Marken oder Dienstleistern verbunden oder diesen angeschlossen. Unser Service ist unabhängig und neutral.
+                    </p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -183,7 +232,6 @@
                 <div class="footer-section">
                     <h4>Kontakt</h4>
                     <p>📞 030 123 456 789</p>
-                    <p>📧 info@kundenservicekomfort.de</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -207,6 +255,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.min.js"></script>
 </body>
 </html>

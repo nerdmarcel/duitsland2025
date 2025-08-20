@@ -3,23 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="KundenserviceKomfort - Ihr zuverlässiger Partner für schnelle und kompetente Kundenbetreuung. Rufen Sie uns jetzt an für sofortige Hilfe.">
-    <meta name="keywords" content="Kundenservice, Support, Hilfe, Beratung, Kundendienst, Deutschland">
+    <meta name="description" content="Support & Kundenservice - Professionelle Betreuung für alle Ihre Anliegen. Telefonischer Support, technische Hilfe und Beratungsleistungen.">
+    <meta name="keywords" content="Kundenservice, Support, Hilfe, technischer Support, Beratung, Kundendienst, Deutschland">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="KundenserviceKomfort">
-    <title>KundenserviceKomfort - Professioneller Kundenservice für alle Ihre Fragen</title>
+    <meta name="author" content="Support Center">
+    <title>Support & Kundenservice - Professionelle Betreuung und technische Hilfe</title>
     <link rel="canonical" href="https://kundenservicekomfort.de/">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="/webmanifest.json">
+    <meta name="theme-color" content="#2563eb">
+    
+    <!-- Resource hints for performance -->
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="styles.min.css" as="style">
+    <link rel="preload" href="script.min.js" as="script">
+    
+    <!-- Critical CSS inline for above-the-fold content -->
+    <style>
+        /* Critical CSS - Above the fold */
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary-color: #10b981;
+            --text-dark: #1f2937;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            font-display: swap;
+        }
+        
+        /* Prevent layout shift during font loading */
+        .font-loaded body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            padding: 1rem 0;
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-brand a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-toggle {
+            display: none;
+        }
+        
+        /* Header CTA Button */
+        .nav-cta {
+            flex-shrink: 0;
+        }
+        
+        .nav-phone-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+        }
+        
+        .nav-phone-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+        }
+        
+        .nav-phone-btn svg {
+            flex-shrink: 0;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .cta-primary {
+            background: var(--white);
+            color: var(--primary-color);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+        
+        .phone-icon {
+            width: 24px;
+            height: 24px;
+        }
+        
+        /* Reserve space for cookie banner to prevent layout shift */
+        body {
+            padding-bottom: 0;
+            transition: padding-bottom 0.3s ease;
+        }
+        
+        .cookie-banner-space {
+            height: 0;
+            transition: height 0.3s ease;
+        }
+        
+        .cookie-banner-visible .cookie-banner-space {
+            height: 120px;
+        }
+        
+        /* Floating phone button - reserve space */
+        .floating-phone-space {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            pointer-events: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-menu { display: none; }
+            .nav-toggle { display: flex; }
+            .cookie-banner-visible .cookie-banner-space {
+                height: 180px;
+            }
+            .nav-phone-btn {
+                font-size: 0.8rem;
+                padding: 0.6rem 1rem;
+            }
+            .nav-phone-btn svg {
+                width: 14px;
+                height: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .navbar .container {
+                gap: 1rem;
+            }
+            .nav-phone-btn {
+                font-size: 0.75rem;
+                padding: 0.5rem 0.8rem;
+            }
+        }
+    </style>
+    
+    <!-- Load full CSS after critical content -->
+    <link rel="preload" href="styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.min.css"></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet';document.documentElement.classList.add('font-loaded');">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Optimized Google Analytics 4 & Google Ads - Load after user interaction -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        
+        // Initialize with consent mode
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied'
+        });
+        
+        // Load GA4 script after user interaction for better performance
+        let gaLoaded = false;
+        function loadGA() {
+            if (!gaLoaded) {
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+                document.head.appendChild(script);
+                
+                script.onload = function() {
+                    gtag('js', new Date());
+                    gtag('config', 'G-XXXXXXXXXX'); // Replace with your GA4 ID
+                    gtag('config', 'AW-XXXXXXXXXX'); // Replace with your Google Ads ID
+                };
+                gaLoaded = true;
+            }
+        }
+        
+        // Load on first user interaction
+        ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'].forEach(function(event) {
+            document.addEventListener(event, loadGA, { once: true, passive: true });
+        });
+        
+        // Enhanced conversion tracking for phone calls
+        function trackPhoneCall(source) {
+            loadGA(); // Ensure GA is loaded before tracking
+            setTimeout(() => {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-XXXXXXXXXX/YYYYYYYYYY', // Replace with your conversion ID
+                    'value': 50.0,
+                    'currency': 'EUR',
+                    'event_category': 'phone_call',
+                    'event_label': source
+                });
+                
+                // Also track as custom event
+                gtag('event', 'phone_call_initiated', {
+                    'event_category': 'conversion',
+                    'event_label': source,
+                    'value': 1
+                });
+            }, 100);
+        }
+    </script>
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="container">
                 <div class="nav-brand">
-                    <a href="index.html">KundenserviceKomfort</a>
+                    <a href="index.html">Kundenservice</a>
                 </div>
                 <button class="nav-toggle" aria-label="Navigation öffnen">
                     <span></span>
@@ -27,11 +311,19 @@
                     <span></span>
                 </button>
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="active">Startseite</a></li>
-                    <li><a href="leistungen.html">Leistungen</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="index.html" class="active">Support</a></li>
+                    <li><a href="leistungen.html">Services</a></li>
+                    <li><a href="faq.html">Hilfe</a></li>
                     <li><a href="kontakt.html">Kontakt</a></li>
                 </ul>
+                <div class="nav-cta">
+                    <a href="tel:+4930123456789" class="nav-phone-btn" onclick="trackPhoneCall('header_cta');" title="Jetzt anrufen">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        030 123 456 789
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
@@ -39,66 +331,75 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Schnelle Hilfe bei allen Ihren Fragen</h1>
-                <p class="hero-subtitle">Professioneller Kundenservice - kompetent, freundlich und sofort erreichbar</p>
+                <h1>Kundenservice & Support</h1>
+                <p class="hero-subtitle">Wir helfen Ihnen gerne bei allen Fragen zu unseren Produkten und Dienstleistungen</p>
                 <div class="cta-container">
-                    <a href="tel:+4930123456789" class="cta-button cta-primary">
+                    <a href="tel:+4930123456789" class="cta-button cta-primary" onclick="trackPhoneCall('hero_button');" style="font-size: 1.2rem; padding: 1rem 2rem;">
                         <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
-                        Jetzt anrufen: 030 123 456 789
+                        030 123 456 789
                     </a>
-                    <p class="availability">Mo-Fr 8:00-20:00 Uhr | Sa 9:00-18:00 Uhr</p>
+                    <p class="availability" style="text-align: center; margin-top: 1.5rem; color: white; opacity: 0.9;">Servicezeiten: Mo-Fr 8:00-20:00 Uhr | Sa 9:00-18:00 Uhr</p>
                 </div>
             </div>
         </section>
 
         <section class="features">
             <div class="container">
-                <h2>Warum KundenserviceKomfort?</h2>
+                <h2>Support-Bereiche</h2>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
-                        <h3>Sofortige Hilfe</h3>
-                        <p>Keine Wartezeiten - direkter Kontakt zu unseren Experten</p>
+                        <div class="feature-icon">💬</div>
+                        <h3>Allgemeine Anfragen</h3>
+                        <p>Fragen zu Produkten, Bestellungen, Rechnungen und allgemeinen Informationen zu unseren Leistungen.</p>
+                        <a href="tel:+4930123456789" style="color: #2563eb; font-weight: 500; text-decoration: none;" onclick="trackPhoneCall('feature_general');" rel="nofollow">→ Anrufen: 030 123 456 789</a>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">👥</div>
-                        <h3>Kompetente Beratung</h3>
-                        <p>Geschulte Mitarbeiter mit Expertise in allen Bereichen</p>
+                        <div class="feature-icon">🔧</div>
+                        <h3>Technischer Support</h3>
+                        <p>Hilfe bei technischen Problemen, Installation, Konfiguration und Fehlerbehandlung.</p>
+                        <a href="tel:+4930123456789" style="color: #2563eb; font-weight: 500; text-decoration: none;" onclick="trackPhoneCall('feature_technical');">→ Anrufen: 030 123 456 789</a>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🔒</div>
-                        <h3>100% Vertraulich</h3>
-                        <p>Ihre Daten sind bei uns sicher und geschützt</p>
+                        <div class="feature-icon">📋</div>
+                        <h3>Vertrag & Abrechnung</h3>
+                        <p>Fragen zu Verträgen, Tarifen, Rechnungen und Zahlungsangelegenheiten.</p>
+                        <a href="tel:+4930123456789" style="color: #2563eb; font-weight: 500; text-decoration: none;" onclick="trackPhoneCall('feature_billing');">→ Anrufen: 030 123 456 789</a>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">💰</div>
-                        <h3>Faire Preise</h3>
-                        <p>Transparente Kosten ohne versteckte Gebühren</p>
+                        <div class="feature-icon">⚙️</div>
+                        <h3>Service & Wartung</h3>
+                        <p>Terminvereinbarungen, Serviceleistungen und Wartungsanfragen.</p>
+                        <a href="tel:+4930123456789" style="color: #2563eb; font-weight: 500; text-decoration: none;" onclick="trackPhoneCall('feature_service');">→ Anrufen: 030 123 456 789</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="testimonials">
+        <section class="features" style="background: #f9fafb;">
             <div class="container">
-                <h2>Das sagen unsere Kunden</h2>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"Schnelle und kompetente Hilfe. Mein Problem wurde innerhalb von Minuten gelöst!"</p>
-                        <cite>- Maria S., Berlin</cite>
+                <h2>Häufige Support-Themen</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Konto & Login</h3>
+                        <p>Passwort zurücksetzen, Kontodaten ändern, Anmeldeproblemen</p>
+                        <a href="tel:+4930123456789" style="color: #2563eb; font-weight: 500; text-decoration: none;" onclick="trackPhoneCall('topic_account');">→ Support anrufen</a>
                     </div>
-                    <div class="testimonial-card">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"Freundlicher Service und immer erreichbar. Sehr zu empfehlen!"</p>
-                        <cite>- Thomas K., München</cite>
+                    <div class="feature-card">
+                        <h3>Bestellung & Lieferung</h3>
+                        <p>Bestellstatus prüfen, Liefertermine, Retouren und Umtausch</p>
+                        <a href="tel:+4930123456789" style="color: #2563eb; font-weight: 500; text-decoration: none;" onclick="trackPhoneCall('topic_orders');">→ Support anrufen</a>
                     </div>
-                    <div class="testimonial-card">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"Endlich ein Kundenservice, der seinen Namen verdient. Top!"</p>
-                        <cite>- Sandra B., Hamburg</cite>
+                    <div class="feature-card">
+                        <h3>Rechnung & Zahlung</h3>
+                        <p>Rechnungserklärung, Zahlungsmethoden, Mahnungen</p>
+                        <a href="tel:+4930123456789" style="color: #2563eb; font-weight: 500; text-decoration: none;" onclick="trackPhoneCall('topic_billing');">→ Support anrufen</a>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Produkt & Service</h3>
+                        <p>Produktfragen, Gewährleistung, Servicetermine</p>
+                        <a href="tel:+4930123456789" style="color: #2563eb; font-weight: 500; text-decoration: none;" onclick="trackPhoneCall('topic_products');">→ Support anrufen</a>
                     </div>
                 </div>
             </div>
@@ -106,11 +407,28 @@
 
         <section class="cta-section">
             <div class="container">
-                <h2>Haben Sie Fragen? Wir sind für Sie da!</h2>
-                <p>Zögern Sie nicht - rufen Sie uns jetzt an und erhalten Sie sofortige Unterstützung</p>
-                <a href="tel:+4930123456789" class="cta-button cta-secondary">
-                    Jetzt Kontakt aufnehmen
-                </a>
+                <h2>Weitere Unterstützung benötigt?</h2>
+                <p style="font-size: 1rem; margin-bottom: 2rem;">Unser Support-Team ist für Sie da und hilft Ihnen gerne weiter.</p>
+                
+                <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px; max-width: 400px;">
+                        <h3 style="margin-bottom: 0.5rem; color: white;">Telefonischer Support</h3>
+                        <p style="margin-bottom: 1.5rem; color: rgba(255,255,255,0.9);">Mo-Fr 8:00-20:00 Uhr<br>Sa 9:00-18:00 Uhr</p>
+                        <a href="tel:+4930123456789" class="cta-button cta-secondary" onclick="trackPhoneCall('bottom_cta_phone');" style="font-size: 1.1rem;">
+                            📞 030 123 456 789
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background: #f8f9fa; padding: 2rem 0; border-top: 1px solid #e9ecef;">
+            <div class="container">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <p style="font-size: 0.9rem; color: #6c757d; margin: 0; line-height: 1.5;">
+                        <strong>Wichtiger Hinweis:</strong> Wir sind ein selbständig operierendes Unternehmen und nicht mit anderen Firmen, Marken oder Dienstleistern verbunden oder diesen angeschlossen. Unser Service ist unabhängig und neutral.
+                    </p>
+                </div>
             </div>
         </section>
     </main>
@@ -119,35 +437,41 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>KundenserviceKomfort</h4>
-                    <p>Ihr zuverlässiger Partner für alle Kundenservice-Fragen</p>
+                    <h4>Support & Service</h4>
+                    <p>Professionelle Kundenbetreuung für alle Ihre Anliegen</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Schnellzugriff</h4>
+                    <h4>Service-Bereiche</h4>
                     <ul>
-                        <li><a href="leistungen.html">Unsere Leistungen</a></li>
+                        <li><a href="leistungen.html">Support-Services</a></li>
                         <li><a href="faq.html">Häufige Fragen</a></li>
-                        <li><a href="kontakt.html">Kontakt</a></li>
+                        <li><a href="kontakt.html">Kontakt aufnehmen</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Rechtliches</h4>
+                    <h4>Rechtliche Hinweise</h4>
                     <ul>
                         <li><a href="impressum.html">Impressum</a></li>
-                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                        <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Kontakt</h4>
+                    <h4>Support-Kontakt</h4>
                     <p>📞 030 123 456 789</p>
-                    <p>📧 info@kundenservicekomfort.de</p>
+                    <p style="font-size: 0.85rem; color: #d1d5db; margin-top: 0.5rem;">Mo-Fr 8-20 Uhr, Sa 9-18 Uhr</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 KundenserviceKomfort. Alle Rechte vorbehalten.</p>
+                <p>&copy; 2024 Service & Support Center. Alle Rechte vorbehalten.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Reserved space for floating button -->
+    <div class="floating-phone-space"></div>
+
+    <!-- Floating Phone Button -->
+    <a href="tel:+4930123456789" class="floating-phone" onclick="trackPhoneCall('floating_button');" title="Jetzt kostenlos anrufen!">📞</a>
 
     <!-- Cookie Consent Banner -->
     <div id="cookie-banner" class="cookie-banner" style="display: none;">
@@ -164,6 +488,19 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Reserved space for cookie banner -->
+    <div class="cookie-banner-space"></div>
+
+    <script>
+        // Register Service Worker for caching
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(error => console.log('SW registration failed'));
+            });
+        }
+    </script>
+    <script src="script.min.js" defer></script>
 </body>
 </html>
